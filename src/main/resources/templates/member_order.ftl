@@ -1,4 +1,7 @@
-<section class="user-center-body order" id="orderBody">
+<article class="fl user-center-main" id="order_id">
+    <header>历史订单</header>
+
+    <section class="user-center-body order" id="orderBody">
 
     <div class="order-list ">
         <div class="order-hd">
@@ -113,3 +116,4 @@
 
     <page show="4" total="1"></page>
 </section>
+</article>

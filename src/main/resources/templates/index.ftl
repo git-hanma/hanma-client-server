@@ -18,7 +18,6 @@
     <meta name="baidu-site-verification" content="IYCrtVH0i1" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
     <link rel="icon" type="image/png" href="images/favicon.ico"/>
-
     <script type="text/javascript">
 
         (function(document, screen) {if (screen.width < 760) {document.location.href="/mobile/";}}(document, screen));

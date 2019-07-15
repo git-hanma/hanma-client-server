@@ -53,9 +53,8 @@
             <ul class="member" login-box>
                 <li><a href="/index" class="index">首页</a></li>
                 <li class="login-register"><a href="/login" class="login"  rel="nofollow">登录</a><span class="cg">/</span><a href="/register" referer-url  rel="nofollow" class="register">注册</a></li>
-                <li><a href="funscript('member_order')" class="order-center"  rel="nofollow">查看订单</a></li>
-                <li class=""><a href="funscript('gifts')"  rel="nofollow">氪星礼品站</a></li>
-                <li class="phone-client "><a href="#"  rel="nofollow" target="_blank"><span>手机客户端</span></a></li>
+                <li><a href="javascript:funMember('member_all')" class="order-center"  rel="nofollow">查看订单</a></li>
+                <li class="phone-client "><a href="javascript:('#')"  rel="nofollow" target="_blank"><span>手机客户端</span></a></li>
             </ul>
 
         </div>
@@ -371,16 +370,12 @@
 
 <script type="text/javascript" src="js/angular.min.js"></script>
 <script src="js/common.js"></script>
-
-
-
-
 <script src="js/service.js"></script>
-
 <script>var feedbackUrl = '/ajax/feedback/';var app = angular.module("app", ["dh.dialog", "dh.form", 'dh.service', 'dh.other']);</script>
 <!--[if lt IE 9]><script src="js/fix.js"></script><![endif]-->
 
 <script>
+    /*菜单目录*/
     $(function () {
         $.ajax({
             url: "/path",
@@ -388,10 +383,22 @@
             dataType: "html",
             data:{'path':"member"},
             success: function (data) {
-                $("#member_all").html(data)
+                $("#member_all").html(data);
             }
         })
     });
+    function funMember(val) {
+        $.ajax({
+            url: "/path",
+            type: "get",
+            dataType: "html",
+            data:{'path':val},
+            success: function (data) {
+                $("#member_all").html(data);
+            }
+        })
+    }
+    /*菜单*/
     $(function () {
         $.ajax({
             url: "/path",
@@ -399,7 +406,7 @@
             dataType: "html",
             data:{'path':"shop_detail_all"},
             success: function (data) {
-                $("#detail_all").html(data)
+                $("#detail_all").html(data);
             }
         })
     });
@@ -410,7 +417,18 @@
             dataType: "html",
             data:{'path':val},
             success: function (data) {
-                $("#detail_all").html(data)
+                $("#detail_all").html(data);
+            }
+        })
+    }
+    function funmemberscript(val) {
+        $.ajax({
+            url: "/path",
+            type: "get",
+            dataType: "html",
+            data:{'path':val},
+            success: function (data) {
+                $("#order_id").html(data);
             }
         })
     }
