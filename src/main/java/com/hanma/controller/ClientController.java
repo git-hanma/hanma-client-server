@@ -20,6 +20,10 @@ public class ClientController {
     public String gotoIndex(){
         return "index";
     }
+    @RequestMapping("/login")
+    public String gotoLogin(){
+        return "login";
+    }
     @RequestMapping("path")
     public String fotoPath(String path){
         return path;
