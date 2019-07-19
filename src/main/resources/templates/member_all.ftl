@@ -100,7 +100,10 @@
             dataType: "json",
             data:{'userId':id},
             success: function (data) {
-                document.getElementById("display").style.visibility = "visible";
+                alert(data)
+                if(data!=null) {
+                    document.getElementById("display").style.visibility = "visible";
+                }
             },
             error: function () {
                 alert("错误");
