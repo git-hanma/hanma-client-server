@@ -46,7 +46,7 @@ public interface UserServiceFeign {
      */
     @GetMapping("/user/getUserIdMerchantId")
     @ResponseBody
-    Long getUserIdMerchantId(@RequestBody Long merchantId);
+    Long getUserIdMerchantId(@RequestParam("merchantId")  Long merchantId);
 
 
     /**
