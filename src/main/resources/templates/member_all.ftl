@@ -92,7 +92,21 @@
         })
     }
     //显示商家管理权限
-    document.getElementById("display").style.visibility = "visible";
+    $(function () {
+        var id=1;
+        $.ajax({
+            url: "userFeign/getUserIdMerchantId",
+            type: "get",
+            dataType: "json",
+            data:{'userId':id},
+            success: function (data) {
+                document.getElementById("display").style.visibility = "visible";
+            },
+            error: function () {
+                alert("错误");
+            }
+        })
+    })
     //查询类目
     function leimu() {
         $.ajax({
