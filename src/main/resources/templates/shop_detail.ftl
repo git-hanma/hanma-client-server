@@ -402,12 +402,23 @@
         })
     }
     /*菜单*/
+    // $(function () {
+    //     $.ajax({
+    //         url: "/path",
+    //         type: "get",
+    //         dataType: "html",
+    //         data:{'path':"shop_detail_all"},
+    //         success: function (data) {
+    //             $("#detail_all").html(data);
+    //         }
+    //     })
+    // });
     $(function () {
         $.ajax({
-            url: "/path",
+            url: "/itCon/queryType",
             type: "get",
             dataType: "html",
-            data:{'path':"shop_detail_all"},
+            // data:{'path':"shop_detail_all"},
             success: function (data) {
                 $("#detail_all").html(data);
             }
@@ -432,6 +443,32 @@
             data:{'path':val},
             success: function (data) {
                 $("#order_id").html(data);
+            }
+        })
+    }
+
+    function iframe(id) {
+        $.ajax({
+            url: "/itCon/queryItem",
+            type: "get",
+            dataType: "html",
+            data:{'id':id},
+            success: function (data) {
+                $("#"+id).html(data);
+            },
+            error:function () {
+                alert("错误")
+            }
+        })
+    }
+    function caidan() {
+        $.ajax({
+            url: "/itCon/queryType",
+            type: "get",
+            dataType: "html",
+            // data:{'path':"shop_detail_all"},
+            success: function (data) {
+                $("#detail_all").html(data);
             }
         })
     }

@@ -41,6 +41,17 @@
                             <a href="javascript:funmemberscript('gifts')" rel="nofollow">氪星礼品站</a>
                         </li>
                     </ul>
+                    <ul id="display" style="visibility: hidden">
+                        <li >
+                            <a href="javascript:leimu()" rel="nofollow">类目管理</a>
+                        </li>
+                        <li >
+                            <a href="javascript:shangpin()" rel="nofollow">商品管理</a>
+                        </li>
+                        <li >
+                            <a href="javascript:funmemberscript('member_addr')" rel="nofollow">我的配送单</a>
+                        </li>
+                    </ul>
                 </aside>
 
                 <div id="order_id"></div>
@@ -80,5 +91,28 @@
             }
         })
     }
+    document.getElementById("display").style.visibility = "visible";
 
+    function leimu() {
+        $.ajax({
+            url: "itCon/queryAllType",
+            type: "get",
+            dataType: "html",
+            // data:{'path':"member_order"},
+            success: function (data) {
+                $("#order_id").html(data);
+            }
+        })
+    }
+    function shangpin() {
+        $.ajax({
+            url: "itCon/queryAllItem",
+            type: "get",
+            dataType: "html",
+            // data:{'path':"member_order"},
+            success: function (data) {
+                $("#order_id").html(data);
+            }
+        })
+    }
 </script>
