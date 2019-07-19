@@ -41,12 +41,12 @@ public interface UserServiceFeign {
 
     /**
      * 根据用户ID查询商家ID是否存在
-     * @param merchantId
+     * @param userId
      * @return
      */
     @GetMapping("/user/getUserIdMerchantId")
     @ResponseBody
-    Long getUserIdMerchantId(@RequestParam("merchantId")  Long merchantId);
+    Long getUserIdMerchantId(@RequestParam("userId")  Long userId);
 
 
     /**

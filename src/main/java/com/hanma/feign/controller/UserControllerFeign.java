@@ -48,12 +48,12 @@ public class UserControllerFeign {
 
     /**
      * 根据用户ID查询商家ID
-     * @param merchantId
+     * @param userId
      * @return
      */
     @GetMapping("/getUserIdMerchantId")
     @ResponseBody
-    public Long getUserIdMerchantId(Long merchantId){
-        return userServiceFegin.getUserIdMerchantId(merchantId);
+    public Long getUserIdMerchantId(Long userId){
+        return userServiceFegin.getUserIdMerchantId(userId);
     }
 }
