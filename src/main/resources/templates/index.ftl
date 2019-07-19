@@ -58,7 +58,7 @@
                     <span>/</span>
                     <a href="javascript:void(0)" ng-click="registerDialogShow()">注册</a>
                     <span>|</span>
-                    <a href="member_order.html">查看订单</a>
+                    <a href="/path?path=shop_detail">查看订单</a>
                 </div>
 
             </div>
@@ -625,7 +625,6 @@
 
 
 <script>angular.bootstrap(document, ["app"]);</script>
-
 
 
 
