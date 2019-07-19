@@ -35,7 +35,7 @@
                             <a href="javascript:funmemberscript('member_collect')" rel="nofollow">我的收藏</a>
                         </li>
                         <li >
-                            <a href="javascript:funmemberscript('member_addr')" rel="nofollow">地址管理</a>
+                            <a href="javascript:open()" rel="nofollow">地址管理</a>
                         </li>
                         <li >
                             <a href="javascript:funmemberscript('gifts')" rel="nofollow">氪星礼品站</a>
@@ -66,5 +66,19 @@
             }
         })
     });
+
+    function open() {
+        $.ajax({
+            url: "/addressFeign/queryUserIdAddress",
+            type: "get",
+            data:{
+                "userId":1
+            },
+            dataType: "html",
+            success: function (data) {
+                $("#order_id").html(data);
+            }
+        })
+    }
 
 </script>

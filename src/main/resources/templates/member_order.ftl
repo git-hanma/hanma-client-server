@@ -27,11 +27,6 @@
                 <p><i>￥32.00</i></p>
             </div>
             <div class="order-operate fl padding-margin">
-
-
-
-
-
                 <p>
                     <a href="javascript:" order-number orderId="3788798" class="btn_a see-details">查看详情<i></i></a>
                 </p>

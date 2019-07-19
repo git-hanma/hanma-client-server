@@ -30,6 +30,9 @@
 
     <link rel="stylesheet" href="css/menuPage.css?v=2015-5-20"/>
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/distpicker.data.js"></script>
+    <script type="text/javascript" src="/js/distpicker.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 
     <!--[if lte IE 7]><script>window.onload=function(){location.href="/ie6warning/"}</script><![endif]-->
     <!--[if lt IE 9]>
