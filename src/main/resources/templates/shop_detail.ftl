@@ -508,7 +508,7 @@
     var favoriteUrl = "/ajax/restaurant/0/favorite/";
     var delivery = {minimum_order_quantity:'150',free_delivery_treshold:'0',delivery_fee:'0' }
 </script>
-<<script src="js/menupage.js"></script>
+<script src="js/menupage.js"></script>
 <script src="js/favorite.js"></script>
 
 <script>angular.bootstrap(document, ["app"]);</script>

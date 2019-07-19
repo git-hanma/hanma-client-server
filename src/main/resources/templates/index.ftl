@@ -58,7 +58,9 @@
                     <span>/</span>
                     <a href="javascript:void(0)" ng-click="registerDialogShow()">注册</a>
                     <span>|</span>
-                    <a href="/path?path=shop_detail">查看订单</a>
+                    <a href="/path?path=member_all">查看订单</a>
+                    <span>/</span>
+                    <a href="/path?path=shop_detail">我的商铺</a>
                 </div>
 
             </div>
@@ -150,7 +152,6 @@
                 </div>
             </section>
             <section class="search-box-wrap">
-                <div class="big-logo position"></div>
                 <div class="search-box-inner">
                     <h2 class="search-title">
                         <strong class="fs24">输入地址，</strong>
