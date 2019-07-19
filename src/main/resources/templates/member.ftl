@@ -16,7 +16,7 @@
 
         <header class="nav clearfix">
             <div class="fl clearfix nav-des">
-                <img src="http://dhcrestaurantlogo.dhero.cn/1592?v=1415630726" alt="[半价菜][送可乐]樱花日本料理" class="fl" />
+                <img src="images/restaurant_04.jpg" alt="[半价菜][送可乐]樱花日本料理" class="fl" />
                 <div class="fl nav-des-text">
                     <h2 class="ellipsis" title="[半价菜][送可乐]樱花日本料理">[半价菜][送可乐]樱花日本料理</h2>
                     <div class="clearfix">
@@ -54,20 +54,18 @@
             <li><a href="javascript:funscript('shop_brand')" id='point-tab'>大家都在点</a></li>
 
         </ul>
+        <section id="detail_all" class="main-box clearfix" lazy-img-load>
 
-        <div id="detail_all"></div>
-        <span id="element" style="position:absolute;display:none" class="badge">1</span>
-        <!--one tip-->
-        <!-- <div class="common-layer" id="layer-tip"></div>
-        <div id="point-tip" class="point-tip" ng-controller="tipController">
-            <div class="point-tab">大家都在点</div>
-            <em></em>
-            <div class="point-main">
-                <i></i>
-                <p>看看大家都在点啥</p>
-                <button ng-click="closeTip()">知道了</button>
-            </div>
-        </div> -->
-    </section>
-
-</div>
+<script>
+    $(function () {
+        $.ajax({
+            url: "/itCon/queryType",
+            type: "get",
+            dataType: "html",
+            // data:{'path':"shop_detail_all"},
+            success: function (data) {
+                $("#detail_all").html(data);
+            }
+        })
+    });
+</script>
