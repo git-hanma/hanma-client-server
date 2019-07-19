@@ -45,4 +45,15 @@ public class UserControllerFeign {
     public ResultMsg updateUser(User user){
         return userServiceFegin.updateUser(user);
     }
+
+    /**
+     * 根据用户ID查询商家ID
+     * @param merchantId
+     * @return
+     */
+    @GetMapping("/getUserIdMerchantId")
+    @ResponseBody
+    public Long getUserIdMerchantId(Long merchantId){
+        return userServiceFegin.getUserIdMerchantId(merchantId);
+    }
 }

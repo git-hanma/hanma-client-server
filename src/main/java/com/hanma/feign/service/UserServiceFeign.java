@@ -40,6 +40,16 @@ public interface UserServiceFeign {
     ResultMsg updateUser(@RequestBody User user);
 
     /**
+     * 根据用户ID查询商家ID是否存在
+     * @param merchantId
+     * @return
+     */
+    @GetMapping("/user/getUserIdMerchantId")
+    @ResponseBody
+    Long getUserIdMerchantId(@RequestBody Long merchantId);
+
+
+    /**
      * 新增地址
      * @param address
      * @return

@@ -38,6 +38,18 @@ public class UserServiceFeignImpl implements UserServiceFeign {
     }
 
     /**
+     * 根据用户ID查询商家ID是否存在
+     *
+     * @param merchantId
+     * @return
+     */
+    @Override
+    public Long getUserIdMerchantId(Long merchantId) {
+        System.out.println("getUserIdMerchantId方法进熔断器了");
+        return null;
+    }
+
+    /**
      * 新增地址
      * @param address
      * @return
