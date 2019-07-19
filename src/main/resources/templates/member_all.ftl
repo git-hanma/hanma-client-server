@@ -91,8 +91,9 @@
             }
         })
     }
+    //显示商家管理权限
     document.getElementById("display").style.visibility = "visible";
-
+    //查询类目
     function leimu() {
         $.ajax({
             url: "itCon/queryAllType",
@@ -104,6 +105,7 @@
             }
         })
     }
+    //查询商品
     function shangpin() {
         $.ajax({
             url: "itCon/queryAllItem",
@@ -114,5 +116,127 @@
                 $("#order_id").html(data);
             }
         })
+    }
+    //跳转新增表单
+    function insert() {
+        $.ajax({
+            type: "post",
+            dataType: "html",
+            url: 'itCon/toInsert',
+            // data: 参数,
+            success: function (data) {       //data回调信息
+                $("#order_id").html(data);
+            }
+        });
+    }
+    //新增商品（表单序列化提交）
+    function button() {
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: 'itCon/insertItem',
+            data: $("#form_button").serialize(),
+            success: function (data) {       //data回调信息
+                // $("#order_id").html(data);
+                alert(data);
+                shangpin();
+            },
+            error:function () {
+                shangpin();
+            }
+        });
+    }
+    //修改商品（通过id查询）
+    function xiugai(id) {
+        $.ajax({
+            type: "get",
+            dataType: "html",
+            url: 'itCon/updateItem',
+            data: {id:id},
+            success: function (data) {       //data回调信息
+                $("#order_id").html(data);
+            },
+            error:function () {
+                alert("报错");
+            }
+        });
+    }
+    //删除商品（逻辑删除）
+    function shagchu(id) {
+        $.ajax({
+            type: "get",
+            dataType: "html",
+            url: 'itCon/deleteItem',
+            data: {id:id},
+            success: function (data) {       //data回调信息
+                // $("#order_id").html(data);
+                alert("成功");
+                shangpin();
+            },
+            error:function () {
+                alert("报错");
+            }
+        });
+    }
+    //跳转新增类目
+    function insertleimu() {
+        $.ajax({
+            type: "post",
+            dataType: "html",
+            url: 'itCon/toInsertleimu',
+            // data: 参数,
+            success: function (data) {       //data回调信息
+                $("#order_id").html(data);
+            }
+        });
+    }
+    //新增类目
+    function putleimu() {
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: 'itCon/insert',
+            data: $("#form_leimu").serialize(),
+            success: function () {       //data回调信息
+                // $("#order_id").html(data);
+                alert("");
+                leimu();
+            },
+            error:function () {
+                leimu();
+            }
+        });
+    }
+    // 修改类目
+    function xiugaileimu(id) {
+        $.ajax({
+            type: "get",
+            dataType: "html",
+            url: 'itCon/xiugaileimu',
+            data: {id:id},
+            success: function (data) {       //data回调信息
+                $("#order_id").html(data);
+            },
+            error:function () {
+                alert("报错");
+            }
+        });
+    }
+    //删除类目
+    function shanchuleimu(id) {
+        $.ajax({
+            type: "get",
+            dataType: "html",
+            url: 'itCon/shanchuleimu',
+            data: {id:id},
+            success: function (data) {       //data回调信息
+                // $("#order_id").html(data);
+                alert("成功");
+                leimu();
+            },
+            error:function () {
+                leimu();
+            }
+        });
     }
 </script>
