@@ -50,7 +50,7 @@
         <ul class="clearfix menu-nav-list" scroll-position-static="160">
             <li class="no-line "><a href="javascript:funscript('shop_intro')">餐厅介绍</a></li>
             <li class="active"><a href="javascript:caidan()">菜单</a></li>
-            <li><a href="javascript:funscript('shop_comment')">评论</a></li>
+            <li><a href="javascript:pinglun()">评论</a></li>
             <li><a href="javascript:funscript('shop_brand')" id='point-tab'>大家都在点</a></li>
 
         </ul>
@@ -68,4 +68,17 @@
             }
         })
     });
+    function pinglun() {
+        var id=1;
+        $.ajax({
+            url: "/userFeign/queryMerchantIdComment",
+            type: "get",
+            dataType: "html",
+            data:{'merchantId':id},
+            success: function (data) {
+                alert(data)
+                $("#detail_all").html(data);
+            }
+        })
+    }
 </script>
