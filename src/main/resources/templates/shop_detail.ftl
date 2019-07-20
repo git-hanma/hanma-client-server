@@ -102,6 +102,18 @@
             }
         })
     });
+    /*更新菜品*/
+    $(function () {
+        $.ajax({
+            url: "/itCon/queryType",
+            type: "get",
+            dataType: "html",
+            // data:{'path':"shop_detail_all"},
+            success: function (data) {
+                $("#detail_all").html(data);
+            }
+        })
+    });
     function funMember(val) {
         $.ajax({
             url: "/path",
