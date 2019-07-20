@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -79,7 +80,10 @@ public class UserControllerFeign {
      */
     @GetMapping("/queryMerchantIdComment")
     @ResponseBody
-    public List<Comment> queryMerchantIdComment(Long merchantId){
-        return userServiceFegin.queryMerchantIdComment(merchantId);
+    public ModelAndView queryMerchantIdComment(Long merchantId){
+        ModelAndView mv = new ModelAndView("shop_comment");
+        List<Comment> commentList =  userServiceFegin.queryMerchantIdComment(merchantId);
+        mv.addObject("commentList",commentList);
+        return mv;
     }
 }
