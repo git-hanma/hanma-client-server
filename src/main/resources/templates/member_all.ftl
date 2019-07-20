@@ -3,6 +3,9 @@
 
     <link rel="stylesheet" href="css/user_center.css"/>
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/dialog/dialog-plus.js"></script>
+    <link rel="stylesheet" href="/js/dialog/ui-dialog.css">
+
     <title>个人中心 - 订单管理</title>
 </head>
 <body class="day " ng-controller="bodyCtrl"  day-or-night>

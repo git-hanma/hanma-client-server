@@ -4,6 +4,7 @@ package com.hanma.feign.service;
 import com.hanma.commons.DataGrid;
 import com.hanma.feign.domain.Address;
 import com.hanma.commons.ResultMsg;
+import com.hanma.feign.domain.Comment;
 import com.hanma.feign.domain.Order;
 import com.hanma.feign.domain.User;
 import com.hanma.feign.service.impl.UserServiceFeignImpl;
@@ -94,5 +95,22 @@ public interface UserServiceFeign {
     @ResponseBody
     ResultMsg updateAddress(@RequestBody Address address);
 
+    /**
+     * 新增评论
+     * @param comment
+     * @return
+     */
+    @PostMapping("/comment/saveComment")
+    @ResponseBody
+    ResultMsg saveComment(@RequestBody Comment comment);
+
+    /**
+     * 根据商家ID查询所有评论
+     * @param merchantId
+     * @return
+     */
+    @GetMapping("/comment/queryMerchantIdComment")
+    @ResponseBody
+    List<Comment> queryMerchantIdComment(@RequestParam("merchantId") Long merchantId);
 
 }

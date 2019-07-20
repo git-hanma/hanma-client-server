@@ -5,7 +5,8 @@
     <div class="order-list ">
         <div class="order-hd">
             <input type="hidden" value="${(list.orderId)!''}" id="orderId">
-
+            <input type="hidden" value="${(list.merchantId)!''}" id="merchantId">
+            <input type="hidden" value="${(list.userId)!''}" id="userId">
             <span><i>订单编号：</i>${(list.orderNumber)!''}</span><i>创建时间：</i>${(list.orderCreateTime?string("yyyy-MM-dd"))!''}
         </div>
         <div class="order-bd clearfix">
@@ -45,6 +46,10 @@
                 <p>
                     <a href="javascript:queryOrderSku(${(list.orderId)!''})" orderId="3788798" class="btn_a see-details">查看详情<i></i></a>
                 </p>
+                <#if list.orderStatus==1500>
+                        <a href="javascript:openDialog()"  orderId="3788798" class="btn_a see-details" >评论</a>
+                </#if>
+
             </div>
         </div>
         <div id="sku"></div>
@@ -53,6 +58,7 @@
 </section>
 </article>
 <script>
+    //根据订单主表ID查询子表
     function queryOrderSku(skuId){
         alert(skuId);
         $.ajax({
@@ -64,6 +70,66 @@
             dataType: "html",
             success: function (data) {
                 $("#sku").html(data);
+            }
+        })
+    }
+
+    //打开dialog框
+    function openDialog(){
+        $.ajax({
+            url:'/path',
+            type:'get',
+            data:{"path":"member_comment"},
+            dataType:'html',
+            success:function(savaPage){
+                dialog({
+                    title:'新增',
+                    content:savaPage,
+                    okValue:'确定',
+                    ok:function(){
+                        saveComment();
+                    }
+                }).showModal();
+            }
+        });
+    }
+
+    function saveComment(){
+        var orderId = $("#orderId").val();
+        var merchantId = $("#merchantId").val();
+        var userId = $("#userId").val();
+        var commentDiscuss = $("input[name='comm']:checked").val();
+        //根据用户ID查询此用户手机号
+        alert(userId);
+        $.ajax({
+            url:'/userFeign/getUserId',
+            type:'get',
+            data:{
+                "userId":userId
+            },
+            dataType:'json',
+            success:function(data){
+                //新增评论
+                alert(userId+"-"+orderId+"-"+merchantId+"-"+commentDiscuss+"-"+data.userPhone);
+                $.ajax({
+                    url:'/userFeign/saveComment',
+                    type:'post',
+                    data:{
+                        "userId":userId,
+                        "orderId":orderId,
+                        "merchantId":merchantId,
+                        "commentDiscuss":commentDiscuss,
+                        "userPhone":data.userPhone
+                    },
+                    dataType:'json',
+                    success:function (data) {
+                        if(data.code==200){
+                            alert("操作成功");
+                        }else{
+                            alert(data.msg);
+                        }
+                    }
+                })
             }
         })
     }
