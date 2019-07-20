@@ -2,6 +2,7 @@ package com.hanma.feign.service.impl;
 
 import com.hanma.commons.ResultMsg;
 import com.hanma.feign.domain.Address;
+import com.hanma.feign.domain.Comment;
 import com.hanma.feign.domain.Order;
 import com.hanma.feign.domain.User;
 import com.hanma.feign.service.UserServiceFeign;
@@ -105,6 +106,30 @@ public class UserServiceFeignImpl implements UserServiceFeign {
     @Override
     public ResultMsg updateAddress(Address address) {
         System.out.println("updateAddress方法进熔断器了");
+        return null;
+    }
+
+    /**
+     * 新增评论
+     *
+     * @param comment
+     * @return
+     */
+    @Override
+    public ResultMsg saveComment(Comment comment) {
+        System.out.println("saveComment方法进熔断器了");
+        return null;
+    }
+
+    /**
+     * 根据商家ID查询所有评论
+     *
+     * @param merchantId
+     * @return
+     */
+    @Override
+    public List<Comment> queryMerchantIdComment(Long merchantId) {
+        System.out.println("queryMerchantIdComment方法进熔断器了");
         return null;
     }
 
