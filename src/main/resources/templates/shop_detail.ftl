@@ -102,7 +102,7 @@
             }
         })
     });
-    /*更新菜品*/
+    /*菜品展示*/
     $(function () {
         $.ajax({
             url: "/itCon/queryType",
@@ -114,6 +114,7 @@
             }
         })
     });
+
     function funMember(val) {
         $.ajax({
             url: "/path",

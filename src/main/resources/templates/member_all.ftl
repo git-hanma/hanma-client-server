@@ -77,7 +77,8 @@
             }
         })
     });
-
+    /*初始化订单*/
+    query();
     function open() {
         $.ajax({
             url: "/addressFeign/queryUserIdAddress",
