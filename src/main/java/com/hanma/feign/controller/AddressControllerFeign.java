@@ -43,7 +43,7 @@ public class AddressControllerFeign {
     }
 
     /**
-     * 根据ID查询所有订单
+     * 根据ID查询所有地址
      * @param userId
      * @return
      */

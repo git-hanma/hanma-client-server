@@ -58,7 +58,7 @@
                     <span>/</span>
                     <a href="javascript:void(0)" ng-click="registerDialogShow()">注册</a>
                     <span>|</span>
-                    <a href="/path?path=member_all">查看订单</a>
+                    <a href="javascript:openOrderd()">查看订单</a>
                     <span>/</span>
                     <a href="/path?path=shop_detail">我的商铺</a>
                 </div>
@@ -629,7 +629,24 @@
 
 <script>angular.bootstrap(document, ["app"]);</script>
 
+<script>
 
+    function openOrderd() {
+        $.ajax({
+            url: "/orderFeign/getUserIdOrder",
+            type: "get",
+            data:{
+                "userId":1
+            },
+            dataType: "html",
+            success: function (data) {
+                $("#order_id").html(data);
+            }
+        })
+    }
+
+
+</script>
 
 </body>
 </html>

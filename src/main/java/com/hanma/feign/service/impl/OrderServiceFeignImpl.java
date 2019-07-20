@@ -1,6 +1,7 @@
 package com.hanma.feign.service.impl;
 
 import com.hanma.feign.domain.Order;
+import com.hanma.feign.domain.OrderSku;
 import com.hanma.feign.service.OrderServiceFeign;
 import org.springframework.stereotype.Component;
 
@@ -22,4 +23,16 @@ public class OrderServiceFeignImpl implements OrderServiceFeign {
         System.out.println("getUserIdOrder方法进熔断器了");
         return null;
     }
+
+    /**
+     * 根据订单主表ID查询附表数据
+     * @param orderId
+     * @return
+     */
+    @Override
+    public List<OrderSku> queryOrderSku(Long orderId) {
+        System.out.println("queryOrderSku方法进熔断器了");
+        return null;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.hanma.feign.service;
 
 import com.hanma.feign.domain.Order;
+import com.hanma.feign.domain.OrderSku;
 import com.hanma.feign.service.impl.UserServiceFeignImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,5 +25,11 @@ public interface OrderServiceFeign {
     @ResponseBody
     List<Order> getUserIdOrder(@RequestParam("userId") Long userId);
 
-
+    /**
+     * 根据订单主表ID查询附表数据
+     * @return
+     */
+    @GetMapping("/order/orderSku")
+    @ResponseBody
+    List<OrderSku> queryOrderSku(@RequestParam("orderid") Long orderId);
 }

@@ -29,7 +29,7 @@
                             <a href="javascript:funmemberscript('member_index')" rel="nofollow">账号管理</a>
                         </li>
                         <li class="active">
-                            <a href="javascript:funmemberscript('member_order')" rel="nofollow">我的订单</a>
+                            <a href="javascript:query()" rel="nofollow">我的订单</a>
                         </li>
                         <li >
                             <a href="javascript:funmemberscript('member_collect')" rel="nofollow">我的收藏</a>
@@ -81,6 +81,21 @@
     function open() {
         $.ajax({
             url: "/addressFeign/queryUserIdAddress",
+            type: "get",
+            data:{
+                "userId":1
+            },
+            dataType: "html",
+            success: function (data) {
+                $("#order_id").html(data);
+            }
+        })
+    }
+
+
+    function query() {
+        $.ajax({
+            url: "/orderFeign/getUserIdOrder",
             type: "get",
             data:{
                 "userId":1
