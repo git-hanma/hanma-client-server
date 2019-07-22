@@ -4,6 +4,7 @@ package com.hanma.feign.service;
 import com.hanma.commons.DataGrid;
 import com.hanma.feign.domain.Address;
 import com.hanma.commons.ResultMsg;
+import com.hanma.feign.domain.Collect;
 import com.hanma.feign.domain.Comment;
 import com.hanma.feign.domain.Order;
 import com.hanma.feign.domain.User;
@@ -113,4 +114,12 @@ public interface UserServiceFeign {
     @ResponseBody
     List<Comment> queryMerchantIdComment(@RequestParam("merchantId") Long merchantId);
 
+    /**
+     * 新增收藏
+     * @param collect
+     * @return
+     */
+    @PostMapping("/collect/saveCollect")
+    @ResponseBody
+    ResultMsg saveCollect(Collect collect);
 }
