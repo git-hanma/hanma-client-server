@@ -1,6 +1,7 @@
 package com.hanma.feign.controller;
 
 import com.hanma.commons.ResultMsg;
+import com.hanma.feign.domain.Collect;
 import com.hanma.feign.domain.Comment;
 import com.hanma.feign.domain.User;
 import com.hanma.feign.service.UserServiceFeign;
@@ -85,5 +86,16 @@ public class UserControllerFeign {
         List<Comment> commentList =  userServiceFegin.queryMerchantIdComment(merchantId);
         mv.addObject("commentList",commentList);
         return mv;
+    }
+
+    /**
+     * 新增收藏
+     * @param collect
+     * @return
+     */
+    @PostMapping("/saveCollect")
+    @ResponseBody
+    public ResultMsg saveCollect(Collect collect){
+        return userServiceFegin.saveCollect(collect);
     }
 }
