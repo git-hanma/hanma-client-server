@@ -17,6 +17,7 @@
     <meta name="google-site-verification" content="BstJA3X9z6f9HcvoN9AZTwaKo_9Abj_j7dVBPfy640s" />
     <meta name="baidu-site-verification" content="IYCrtVH0i1" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
     <link rel="icon" type="image/png" href="images/favicon.ico"/>
     <script type="text/javascript">
 
@@ -535,69 +536,103 @@
         <p>请您检查地址拼写/格式是否正确和 <a href="javascript:void(0)" class="link" ng-click="resetStreet()">重新输入您的地址</a>。</p>
     </div>
 </dh-dialog>
-<dh-dialog class="disnone" height="500" type="merchants" header="商户入驻申请" show="merchantsShow">
-    <div class="inline" ng-controller="merchantCtrl">
-        <div class="form-group row mb10">
-            <label class="col-3" >商户名称：</label>
-            <div class="col-8">
-                <input type="text" ng-class="{error:merchants.nameMessage}" maxlength="11" placeholder="输入店铺的名称，例：美美小厨" ng-model="merchants.name"/>
-            </div>
-            <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.nameMessage">
+
+    <dh-dialog class="disnone" height="500" type="merchants" header="商户入驻申请" show="merchantsShow">
+        <from id="addInsert">
+        <div class="inline" ng-controller="merchantCtrl">
+            <div class="form-group row mb10">
+                <label class="col-3" >商户名称：</label>
+                <div class="col-8">
+                    <input type="text" ng-class="{error:merchants.nameMessage}" maxlength="11" placeholder="输入店铺的名称，例：美美小厨" ng-model="merchants.name" id="merchantName"/>
+                </div>
+                <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.nameMessage">
                     <span ng-bind="merchants.nameMessage"></span>
                 </span>
-        </div>
-        <div class="form-group row mb10">
-            <label class="col-3">所属城市：</label>
-            <div class="col-8">
-                <select model="city" area-model="area" ng-class="{error:merchants.cityMessage}" class="city-change"></select>
             </div>
-            <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.cityMessage">
+            <div class="form-group row mb10">
+                <label class="col-3">商家简介：</label>
+                <div class="col-8">
+                    <textarea cols="12" rows="12" id="merchantIntro"></textarea>
+                </div>
+                <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.cityMessage">
                     <span ng-bind="merchants.cityMessage"></span>
                 </span>
-        </div>
-        <div class="form-group row mb10">
-            <label class="col-3">行政分区：</label>
-            <span class="col-8">
+            </div>
+            <div class="form-group row mb10">
+                <label class="col-3">所属城市：</label>
+                <div class="col-8">
+                    <input type="text" ng-class="{error:merchants.usernameMessage}" ng-model="merchants.username" id="merchantAddress"/>
+                </div>
+                <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.cityMessage">
+                    <span ng-bind="merchants.cityMessage"></span>
+                </span>
+            </div>
+            <#--<div class="form-group row mb10">
+                <label class="col-3">行政分区：</label>
+                <span class="col-8">
                     <select  id="areaSelect"></select>
                 </span>
-        </div>
-        <div class="form-group row mb10">
-            <label class="col-3">店主姓名：</label>
-            <div class="col-8">
-                <input type="text" ng-class="{error:merchants.usernameMessage}" placeholder="请输入联系人姓名" ng-model="merchants.username"/>
-            </div>
-            <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.usernameMessage">
+            </div>-->
+            <div class="form-group row mb10">
+                <label class="col-3">店主姓名：</label>
+                <div class="col-8">
+                    <input type="text" ng-class="{error:merchants.usernameMessage}" placeholder="请输入联系人姓名"  id="merchantLinkman"/>
+                </div>
+                <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.usernameMessage">
                     <span ng-bind="merchants.usernameMessage"></span>
                 </span>
-        </div>
-        <div class="form-group row mb20">
-            <label class="col-3">联系电话：</label>
-            <div class="col-8">
-                <input type="text" ng-class="{error:merchants.phoneMessage}" maxlength="11" placeholder="建议输入11位手机号码" ng-model="merchants.phone"/>
             </div>
-            <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.phoneMessage">
+            <div class="form-group row mb20">
+                <label class="col-3">联系电话：</label>
+                <div class="col-8">
+                    <input type="text" ng-class="{error:merchants.phoneMessage}" maxlength="11" placeholder="建议输入11位手机号码" ng-model="merchants.phone" id="merchantPhone"/>
+                </div>
+                <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.phoneMessage">
                     <span ng-bind="merchants.phoneMessage"></span>
                 </span>
-        </div>
-        <div class="form-group row agreement mb20">
-            <input type="checkbox" ng-model="merchants.checkbox" id="male"/><label for="male">我同意外卖超人</label><a href="/agreement" target="_blank">"餐厅入驻协议"</a>
-        </div>
-        <div class="tc merchants-btn">
-            <button class="btn normal-btn btn-success" ng-click="merchantSubmit()" ng-disabled="!merchants.checkbox">确认</button>
-            <button class="btn normal-btn btn-cancel" ng-click="merchantCancel()">取消</button>
-        </div>
-    </div>
-</dh-dialog>
+            </div>
 
-<dh-dialog class="disnone" type="alert" index="1001" header="" show="requestSuccess">
-    <div class="alert-box fs14">
-        <p>您的入驻申请已经提交成功！<br>请保持手机畅通，超人客服将尽快<br>联系您~</p>
-    </div>
-</dh-dialog>
-<dh-dialog class="disnone" type="alert" index="1001" header="" show="requestError">
-    <div class="alert-box error fs14">
-        <p>抱歉由于系统原因，暂时无法提交。<br>请稍后重试。</p>
-    </div>
+
+            <div class="form-group row mb10">
+                <label class="col-3">经营品类：</label>
+                <div class="col-8">
+                    <select  id="merchantType">
+                        <option value="0">快餐</option>
+                        <option value="1">火锅</option>
+                        <option value="2">小吃</option>
+                        <option value="3">粤菜</option>
+                        <option value="4">川菜</option>
+                        <option value="5">东北菜</option>
+                    </select>
+                </div>
+                <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.cityMessage">
+                    <span ng-bind="merchants.cityMessage"></span>
+                </span>
+            </div>
+
+         <#--   <div class="form-group row mb20">
+                <label class="col-3">商家图片：</label>
+                <div class="col-8">
+                    <img src="null">
+                </div>
+                <span class="vaildate-error col-8 col-offset-3" ng-if="merchants.phoneMessage">
+                    <span ng-bind="merchants.phoneMessage"></span>
+                </span>
+            </div>-->
+
+
+
+
+
+            <div class="form-group row agreement mb20">
+                <input type="checkbox" ng-model="merchants.checkbox" id="male"/><label for="male">我同意外卖超人</label><a href="/agreement" target="_blank">"餐厅入驻协议"</a>
+            </div>
+            <div class="tc merchants-btn">
+                <button class="btn normal-btn btn-success" onclick="insertAndUpdateUser()" >确认</button>
+                <#--<button class="btn normal-btn btn-cancel" ng-click="merchantCancel()">取消</button>-->
+            </div>
+        </div>
+        </from>
 </dh-dialog>
 
 
@@ -612,7 +647,6 @@
         <div><img src="images/wx.png" alt=""/></div>
     </li>
 </ul>
-
 <script type="text/javascript" src="js/angular.min.js"></script>
 <script src="js/common.js"></script>
 
@@ -649,4 +683,31 @@
 </script>
 
 </body>
+<script type="text/javascript">
+
+
+    function insertAndUpdateUser() {
+        var str = $("#merchantName").val();
+        var str1 = $("#merchantAddress").val();
+        var str2 = $("#merchantLinkman").val();
+        var str3 = $("#merchantPhone").val();
+        var str4 = $("#merchantType").val();
+        var str5 = $("#merchantIntro").val();
+        //alert(str+"-"+str1+"-"+str2);
+        $.ajax({
+            type:"POST",
+            url:"/client/addTerraceSave",
+            data:{
+                "merchantName":str,
+                "merchantAddress":str1,
+                "merchantLinkman":str2,
+                "merchantPhone":str3,
+                    "merchantType":str4,
+                "merchantIntro":str5,
+            }
+        });
+    }
+
+
+</script>
 </html>
