@@ -55,7 +55,7 @@
 
         </ul>
         <section id="detail_all" class="main-box clearfix" lazy-img-load>
-
+            <aside class="fl">
 <script>
     $(function () {
         $.ajax({
@@ -82,6 +82,3 @@
         })
     }
 </script>
-<script src="js/menupage.js"></script>
-<script src="js/favorite.js"></script>
-<script>angular.bootstrap(document, ["app"]);</script>

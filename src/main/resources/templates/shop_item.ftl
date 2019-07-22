@@ -1,5 +1,5 @@
 <#list itemList as itemList>
-<li title="${itemList.itemName}" class="menu-item hasImg" accessorykey="${itemList.typeId}-2048898" data-sale="0" data-price="${itemList.itemPrice}">
+<li title="${itemList.itemName}" class="menu-item hasImg" accessorykey="39215-2048900" data-sale="0" data-price="${itemList.itemPrice}">
     <div class="menu-item-img">
         <img data-src="http://dhcmenuitem.dhero.cn/142615425540822113425540737808?imageView2/1/w/202/h/202/" src="http://dhcmenuitem.dhero.cn/0"  width="202" height="202" />
     </div>
