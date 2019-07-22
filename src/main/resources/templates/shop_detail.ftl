@@ -70,20 +70,7 @@
 
 
     <span id="member_all"></span>
-    </aside>
-</section>
-<span id="element" style="position:absolute;display:none" class="badge">1</span>
-<!--one tip-->
-<!-- <div class="common-layer" id="layer-tip"></div>
-<div id="point-tip" class="point-tip" ng-controller="tipController">
-    <div class="point-tab">大家都在点</div>
-    <em></em>
-    <div class="point-main">
-        <i></i>
-        <p>看看大家都在点啥</p>
-        <button ng-click="closeTip()">知道了</button>
-    </div>
-</div> -->
+
 </section>
 
 </div>
@@ -539,9 +526,8 @@
     var favoriteUrl = "/ajax/restaurant/0/favorite/";
     var delivery = {minimum_order_quantity:'150',free_delivery_treshold:'0',delivery_fee:'0' }
 </script>
-<#--<script src="js/menupage.js"></script>
-<script src="js/favorite.js"></script>-->
 
+<script src="js/menupage.js"></script>
 
 
 
