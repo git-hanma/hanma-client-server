@@ -14,11 +14,11 @@
             <div id="menu-main" class="menu-main">
 
             <#list typelist as typelist>
-                <article class="collapse section-39215">
+                <article class="collapse section-${typelist.typeId}">
                     <header accordion>
                         <h3 class="ellipsis">${typelist.typeName} </h3>
-                        <span ng-if="sectionCount['39215']" ng-class="{disinbl:sectionCount['39215']}"
-                              class="badge disnone" ng-bind="sectionCount['39215']"></span>
+                        <span ng-if="sectionCount['${typelist.typeId}']" ng-class="{disinbl:sectionCount['${typelist.typeId}']}"
+                              class="badge disnone" ng-bind="sectionCount['${typelist.typeId}']"></span>
                         <i class="icon shrink-icon position"></i>
                     </header>
                     <section>
@@ -41,7 +41,7 @@
         </div>
     </div>
     <aside class="fl">
-        <article class="cart" scroll-position-static="160" top="42">
+        <article class="cart " scroll-position-static="160" top="42">
             <div class="menu-cart">
                 <header>
                     <!-- <h4 class="ellipsis w100p" title="[半价菜][送可乐]樱花日本料理">[半价菜][送可乐]樱花日本料理</h4> -->

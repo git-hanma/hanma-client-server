@@ -25,14 +25,14 @@
 
         (function(document, screen) {if (screen.width < 760) {document.location.href="/mobile/";}}(document, screen));
     </script>
-
-    <link rel="stylesheet" href="css/common.css?v=2015-5-20"/>
-
-    <link rel="stylesheet" href="css/menuPage.css?v=2015-5-20"/>
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/js/distpicker.data.js"></script>
     <script type="text/javascript" src="/js/distpicker.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+    <link rel="stylesheet" href="css/common.css"/>
+
+    <link rel="stylesheet" href="css/menuPage.css"/>
+
 
     <!--[if lte IE 7]><script>window.onload=function(){location.href="/ie6warning/"}</script><![endif]-->
     <!--[if lt IE 9]>
