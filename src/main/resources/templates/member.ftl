@@ -40,7 +40,7 @@
                 </div>
                 <div class="fl nav-right-collect line-left">
 
-                    <div class="collect not-collect" title="收藏餐厅" data-rid="1592"></div>
+                    <div class="collect not-collect" title="收藏餐厅" data-rid="1592" onclick="saveCollect()"></div>
                     <div class="collect-success">收藏成功</div>
                     <div id="review-text">未收藏</div>
 
@@ -82,4 +82,27 @@
             }
         })
     }
+
+    /**
+     * 新增收藏
+     */
+    function saveCollect(){
+        $.ajax({
+            url:'/userFeign/saveCollect',
+            type:'post',
+            data:{
+                "merchantId":1,
+                "userId":1
+            },
+            dataType:'json',
+            success:function(data){
+                if(data.code==200){
+                    alert("新增成功");
+                }else{
+                    alert(data.msg);
+                }
+            }
+        })
+    }
+
 </script>

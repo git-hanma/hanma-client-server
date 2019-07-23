@@ -146,4 +146,28 @@ public class UserServiceFeignImpl implements UserServiceFeign {
         return null;
     }
 
+    /**
+     * 根据用户ID查询收藏记录
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<Collect> queryUserIdCollect(Long userId) {
+        System.out.println("queryUserIdCollect方法进熔断器了");
+        return null;
+    }
+
+    /**
+     * 根据收藏ID删除
+     *
+     * @param collectId
+     * @return
+     */
+    @Override
+    public ResultMsg delCollectId(Long collectId) {
+        System.out.println("delCollectId方法进熔断器了");
+        return null;
+    }
+
 }

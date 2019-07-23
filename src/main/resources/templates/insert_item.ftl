@@ -10,7 +10,14 @@
             <table>
                 <thead>
                      <input type="hidden" name="itemId" value="${(list.itemId)!''}">
-                    <tr>类目编号<input name="typeId" value="${(list.typeId)!''}"></tr><br>
+                    <#--<tr>类目编号<input name="typeId" value="${(list.typeId)!''}"></tr><br>-->
+                     <input id="valtest" type="hidden" name="typeId">
+                     <div id="insert_item"></div>
+                     <script>
+                         $(function () {
+                             insertitem();
+                         })
+                     </script>
                     <tr>商品价格<input name="itemPrice" value="${(list.itemPrice)!''}"></tr><br>
                     <tr>商品名称<input name="itemName" value="${(list.itemName)!''}" ></tr><br>
                     <tr>已售数量<input name="itemCountnum" value="${(list.itemCountnum)!''}"></tr><br>
@@ -30,3 +37,8 @@
         </article>
     </section>
 </article>
+<script>
+    function funtest(val) {
+        $("#valtest").val(val);
+    }
+</script>

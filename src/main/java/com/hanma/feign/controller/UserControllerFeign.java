@@ -98,4 +98,31 @@ public class UserControllerFeign {
     public ResultMsg saveCollect(Collect collect){
         return userServiceFegin.saveCollect(collect);
     }
+
+
+    /**
+     * 根据用户ID查询收藏记录
+     * @param userId
+     * @return
+     */
+    @GetMapping("/queryUserIdCollect")
+    @ResponseBody
+    public ModelAndView queryUserIdCollect(Long userId){
+        ModelAndView mv = new ModelAndView("member_collect");
+        List<Collect> collectList = userServiceFegin.queryUserIdCollect(userId);
+        mv.addObject("collect",collectList);
+        return mv;
+    }
+
+    /**
+     * 根据收藏ID删除
+     * @param collectId
+     * @return
+     */
+    @PostMapping("/delCollectId")
+    @ResponseBody
+    public ResultMsg delCollectId(Long collectId){
+        return  userServiceFegin.delCollectId(collectId);
+    }
+
 }
