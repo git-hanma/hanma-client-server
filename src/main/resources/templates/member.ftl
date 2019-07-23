@@ -55,7 +55,7 @@
 
         </ul>
         <section id="detail_all" class="main-box clearfix" lazy-img-load>
-
+            <aside class="fl">
 <script>
     $(function () {
         $.ajax({
