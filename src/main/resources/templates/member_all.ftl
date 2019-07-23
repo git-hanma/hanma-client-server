@@ -213,6 +213,21 @@
             }
         });
     }
+    //新增类目主键列表
+    function insertitem() {
+        $.ajax({
+            type: "get",
+            dataType: "html",
+            url: 'itCon/insertitemxiala',
+            // data: {id:id},
+            success: function (data) {       //data回调信息
+                $("#insert_item").html(data);
+            },
+            error:function () {
+                alert("报错");
+            }
+        });
+    }
     //删除商品（逻辑删除）
     function shagchu(id) {
         $.ajax({
