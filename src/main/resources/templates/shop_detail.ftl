@@ -82,6 +82,7 @@
         $.ajax({
             url: "/path",
             type: "get",
+            async:false,
             dataType: "html",
             data:{'path':"member"},
             success: function (data) {
@@ -94,6 +95,7 @@
         $.ajax({
             url: "/itCon/queryType",
             type: "get",
+            async:false,
             dataType: "html",
             // data:{'path':"shop_detail_all"},
             success: function (data) {
@@ -106,6 +108,7 @@
         $.ajax({
             url: "/path",
             type: "get",
+            async:false,
             dataType: "html",
             data:{'path':val},
             success: function (data) {
@@ -130,6 +133,7 @@
         $.ajax({
             url: "/path",
             type: "get",
+            async:false,
             dataType: "html",
             data:{'path':val},
             success: function (data) {
@@ -141,6 +145,7 @@
         $.ajax({
             url: "/path",
             type: "get",
+            async:false,
             dataType: "html",
             data:{'path':val},
             success: function (data) {
@@ -153,6 +158,7 @@
         $.ajax({
             url: "/itCon/queryItem",
             type: "get",
+            async:false,
             dataType: "html",
             data:{'id':id},
             success: function (data) {
@@ -167,6 +173,7 @@
         $.ajax({
             url: "/itCon/queryType",
             type: "get",
+            async:false,
             dataType: "html",
             // data:{'path':"shop_detail_all"},
             success: function (data) {
@@ -528,6 +535,8 @@
 </script>
 
 <script src="js/menupage.js"></script>
+<script src="js/favorite.js"></script>
+<script>angular.bootstrap(document, ["app"]);</script>
 
 
 

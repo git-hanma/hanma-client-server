@@ -144,10 +144,3 @@
             <button ng-click="closeTip()">知道了</button>
         </div>
     </div> -->
-    <script>
-        var groups = document.getElementById('menu-main').getElementsByTagName('ul');
-        console.log(groups);
-    </script>
-        <script src="js/menupage.js"></script>
-        <script src="js/favorite.js"></script>
-        <script>angular.bootstrap(document, ["app"]);</script>
