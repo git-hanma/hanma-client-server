@@ -552,7 +552,7 @@ var bodyCtrl = (function (window) {
                         .error(function () {
                             scope.isPlaceOrder=false;
                             scope.createOrderError = true;
-                            scope.createOrderErrorMsg = '访问异常，请稍后再试。';
+                            scope.createOrderErrorMsg = '请注意资金安全与核对收货地址！';
                         })
                 }
             }

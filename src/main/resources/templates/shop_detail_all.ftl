@@ -101,9 +101,9 @@
                             <div class="fr">合计：￥<span ng-bind="total|number:2"></span></div>
                         </div>
                         <div class="checkout">
-                            <button class="checkout btn" ng-disabled="isPlaceOrder" ng-click="createOrder()" ng-bind="createOrderBtnName">立即下单</button>
+                            <button class="checkout btn" ng-disabled="isPlaceOrder" ng-click="createOrder()" ng-bind="createOrderBtnName" onclick="funMember('order')">立即下单</button>
                         </div>
-                    </div>
+                    </div><#--<a href="javascript:funMember('order')"></a>-->
                 </section>
             </div>
 
