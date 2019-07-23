@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 /**
  * Created by p on 2019/7/16.
  */
@@ -40,6 +42,14 @@ public class ClientServerController {
     }*/
 
 
+
+
+    /**
+     * 调用后台服务 商家注入店铺
+     * name: 王辉
+     * @param terrace
+     * @return
+     */
     @RequestMapping("addTerraceSave")
     @ResponseBody
     public String addTerraceSave(Terrace terrace) {
@@ -47,4 +57,21 @@ public class ClientServerController {
         return clientService.addTerraceSave(terrace);
     }
 
+
+
+
+
+    /**
+     * 调用后天服务接口 展示店铺
+     *name : 王辉
+     * @return
+     */
+    @RequestMapping("terraceQueryList")
+    @ResponseBody
+    public ModelAndView terraceQueryList(){
+        ModelAndView mav = new ModelAndView("index_shop");
+        List<Terrace> listQuery = clientService.terraceQueryList();
+        mav.addObject("listQuery",listQuery);
+        return mav;
+    }
 }

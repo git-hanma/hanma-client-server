@@ -129,4 +129,13 @@ public class ItContoller {
     public void shanchuleimu(Long id){
         itService.shanchuleimu(id);
     }
+    //新增类目列表
+    @ResponseBody
+    @RequestMapping(value = "insertitemxiala",method = RequestMethod.GET)
+    public ModelAndView insertitemxiala(){
+        ModelAndView view = new ModelAndView("insert_item_xiala");
+        List<Type> list=itService.queryType();
+        view.addObject("xialalist",list);
+        return view;
+    }
 }

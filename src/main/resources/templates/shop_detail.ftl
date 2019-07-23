@@ -82,6 +82,7 @@
         $.ajax({
             url: "/path",
             type: "get",
+            async:false,
             dataType: "html",
             data:{'path':"member"},
             success: function (data) {
@@ -94,6 +95,7 @@
         $.ajax({
             url: "/itCon/queryType",
             type: "get",
+            async:false,
             dataType: "html",
             // data:{'path':"shop_detail_all"},
             success: function (data) {
@@ -154,6 +156,7 @@
             url: "/itCon/queryItem",
             type: "get",
             dataType: "html",
+            async:false,
             data:{'id':id},
             success: function (data) {
                 $("#"+id).html(data);
@@ -527,7 +530,7 @@
     var delivery = {minimum_order_quantity:'150',free_delivery_treshold:'0',delivery_fee:'0' }
 </script>
 
-<script src="js/menupage.js"></script>
+
 
 
 

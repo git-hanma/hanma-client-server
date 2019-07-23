@@ -61,6 +61,7 @@
         $.ajax({
             url: "/itCon/queryType",
             type: "get",
+            async:false,
             dataType: "html",
             // data:{'path':"shop_detail_all"},
             success: function (data) {

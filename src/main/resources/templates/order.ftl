@@ -41,43 +41,8 @@
 <body class="day " ng-controller="bodyCtrl"  day-or-night>
 <section class="common-back" id="wrapBackground">
 
-    <header id="header">
-        <div class="common-width clearfix">
-            <h1 class="fl">
-                <a class="logo base-logo" href="index.html">外卖超人</a>
-            </h1>
-
-            <ul class="member logging" ng-init="loginInfo=true">
-                <li><a href="index.html" class="index">首页</a></li>
-                <li class="userName">
-                    <a href="/account/center/manage/" rel="nofollow" draw-user>18005151538<em></em></a>
-                    <div>
-                        <p><a href="/account/center/manage/"  rel="nofollow">账号管理</a></p>
-                        <p><a href="/account/center/address/"  rel="nofollow">地址管理</a></p>
-                        <p class="no-bo"><a id="logout" href="/account/logout/" referer-url rel="nofollow">退出</a></p>
-                    </div>
-                </li>
-                <li class=""><a href="/account/center/orders/" class="order-center"  rel="nofollow">我的订单</a></li>
-                <li class=""><a href="/account/center/favorite/"  rel="nofollow">我的收藏</a></li>
-                <li class=""><a href="/account/gift/center/"  rel="nofollow">氪星礼品站</a></li>
-                <li class="phone-client "><a href="/app/"  rel="nofollow" target="_blank"><span>手机客户端</span></a></li>
-            </ul>
-
-        </div>
-    </header>
 
     <div id="main-box">
-        <!--二维码-->
-        <div class="qrCode-frame" ng-hide="qrCodeStatus">
-            <img src="images/wx.png" alt="扫描二维码" />
-            <em ng-click="qrCodeStatus=true">X</em>
-        </div>
-
-        <div ng-controller="colorAction">
-            <div class="dayColor_two"></div>
-            <div class="dayColor_one"></div>
-            <div class="dayColor_three" ng-class="{dayColor_threeActive:threeActive}"></div>
-        </div>
 
 
         <section class="checkout-main common-width">
@@ -206,63 +171,6 @@
 
     </div>
 </section>
-
-<footer id="footer">
-    <div class="footer-first gray">
-        <div class="company-info clearfix fs14 gray">
-            <a href="/about_us/" target="_blank"  rel="nofollow">关于我们</a>
-            <a href="/help/" target="_blank"  rel="nofollow">帮助中心</a>
-            <a href="/terms-and-conditions/" target="_blank"  rel="nofollow">法律声明</a>
-            <a href="/jobs/" target="_blank"  rel="nofollow">人才招聘</a>
-            <a href="/contact/" target="_blank"  rel="nofollow">联系我们</a>
-            <a href="javascript:;" user-feedback ng-click="userFeedback=true" class="last" rel="nofollow">意见反馈</a>
-            <a href="/restaurant/list/shanghai/1/" class="last" target="_blank" style="display:none">上海餐厅导航</a>
-        </div>
-    </div>
-    <div class="footer-last">
-        <a target="_blank" class="foot-logo-1 base-logo" href="index.html"></a>
-        <div class="tc fs14 light-gray mb10">
-            ©2014 waimaichaoren.com All Rights Reserved - 沪ICP备11019908号
-        </div>
-    </div>
-</footer>
-
-
-<dh-dialog class="disnone" height="500" feeedbackclass="userFeedback" type="user-feedback" header="意见反馈" show="userFeedback">
-    <div ng-controller="feedbackCtrl">
-        <form novalidate="true" name="feedbackForm" class="inline">
-            <div class="form-group row mb10">
-                <label class="col-3">联系方式：</label>
-                <div class="col-8">
-                    <input type="text" maxlength="20" name="userContact" required ng-focus="userContactFocus()" ng-class="{error:feedback.phoneMessage}" placeholder="请输入您的手机号码" ng-model="feedback.userContact"/>
-                </div>
-            </div>
-            <div class="row mb10">
-                <div class="clo-8 col-offset-3" ng-if="feedback.phoneMessage">
-                    <span class="vaildate-error">联系方式不能为空</span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-3 vt">反馈信息：</label>
-                <div class="col-8">
-                    <textarea name="feedbackMessage"  placeholder="可以说说您对外卖超人的意见" ng-focus="feedbacFocus()" required ng-class="{error:feedback.feedbackMessageTip}" ng-model="feedback.feedbackMessage" maxlength="300" cols="25" rows="7"></textarea>
-                </div>
-            </div>
-            <div class="row mb10">
-                <div class="clo-8 col-offset-3" ng-if="feedback.feedbackMessageTip">
-                    <span class="vaildate-error">反馈信息不能为空</span>
-                </div>
-            </div>
-            <div class="tc">
-                <button class="btn normal-btn btn-success" ng-click="feedbackSubmit()">确认</button>
-                <button class="btn normal-btn btn-cancel" ng-click="feedbackCancel()">取消</button>
-            </div>
-        </form>
-    </div>
-    <div class="common-dialog-footer">
-        咨询加QQ群：337212031
-    </div>
-</dh-dialog>
 
 
 <dh-dialog class="disnone" type='login' height="500" header="登录" show="loginShow" >

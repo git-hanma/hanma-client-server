@@ -39,4 +39,5 @@ public interface ItService {
 
     @RequestMapping(value = "type/shanchuleimu",method = RequestMethod.GET)
     void shanchuleimu(@RequestParam("id") Long id);
+
 }

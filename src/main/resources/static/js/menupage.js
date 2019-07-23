@@ -552,7 +552,7 @@ var bodyCtrl = (function (window) {
                         .error(function () {
                             scope.isPlaceOrder=false;
                             scope.createOrderError = true;
-                            scope.createOrderErrorMsg = '访问异常，请稍后再试。';
+                            scope.createOrderErrorMsg = '请注意资金安全与核对收货地址！';
                         })
                 }
             }
@@ -753,8 +753,8 @@ app.directive("accessoryNav", function () {
 });
 app.directive("addendumItem",function(){
     return {
-        restrict: 'C',
-        link:function(scope,elem,attrs){
+         restrict: 'C',
+         link:function(scope,elem,attrs){
             var children=elem.children();
             if(children.length<=0){
                 var prev=elem.parent().children()[0];
@@ -783,7 +783,7 @@ angular.element(document).ready(function() {
         if (angular.isElement(targetEl)) {
             li = targetEl.getElementsByTagName('li');
             for (var i = 0, len = li.length; i < len; ++i) {
-                list.push(li[i]);
+                list.push(li[i]);    
             }
         }
         return list;
@@ -816,7 +816,7 @@ angular.element(document).ready(function() {
         groups[i]._priceDescend = groups[i]._priceAscend.slice(0).reverse();
         groups[i]._saleDescend = groups[i]._defaultOrder.slice(0).sort(compareSales);
     }
-
+    
     navigation.onclick = function(event) {
         var orderListName, frag, order;
         var event=event||window.event;
