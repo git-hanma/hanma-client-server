@@ -2,10 +2,13 @@ package com.hanma.controller;/**
  * Created by Administrator on 2019/7/14.
  */
 
+import com.hanma.domain.Terrace;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.websocket.server.PathParam;
+import java.util.List;
 
 /**
  * @program: hanma-client-server
@@ -59,5 +62,11 @@ public class ClientController {
     @RequestMapping("path")
     public String fotoPath(String path){
         return path;
+    }
+
+
+    @RequestMapping("toPage")
+    public String toPage(){
+        return "shop_detail";
     }
 }
