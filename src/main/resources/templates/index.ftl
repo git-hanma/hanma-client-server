@@ -18,25 +18,41 @@
     <meta name="baidu-site-verification" content="IYCrtVH0i1" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-    <link rel="icon" type="image/png" href="images/favicon.ico"/>
+    <link rel="icon" type="image/png" href="/images/favicon.ico"/>
     <script type="text/javascript">
 
         (function(document, screen) {if (screen.width < 760) {document.location.href="/mobile/";}}(document, screen));
     </script>
 
-    <link rel="stylesheet" href="css/common.css?v=2015-5-20"/>
+    <link rel="stylesheet" href="/css/common.css?v=2015-5-20"/>
 
-    <link rel="stylesheet" href="css/frontPage.css"/>
-    <link rel="stylesheet" href="css/restaurant.css"/>
+    <link rel="stylesheet" href="/css/frontPage.css"/>
+    <link rel="stylesheet" href="/css/restaurant.css"/>
 
     <!--[if lte IE 7]><script>window.onload=function(){location.href="/ie6warning/"}</script><![endif]-->
     <!--[if lt IE 9]>
-    <script src="js/respond.js"></script>
+    <script src="/js/respond.js"></script>
     <script>
         var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video, dh-dialog, dh-checkbox".split(', ');
         var i= e.length;while (i--){document.createElement(e[i])}
     </script>
     <![endif]-->
+    <script>
+        $(function () {
+            $.ajax({
+                url: "/client/terraceQueryList",
+                type: "get",
+//                async:false,
+                dataType:"html",
+                // data:{'path':"shop_detail_all"},
+                success: function (data) {
+                    alert(data);
+                    $("#indexshop").html(data);
+                }
+            })
+        });
+    </script>
+
     <title>首页</title>
 </head>
 <body class="day " ng-controller="bodyCtrl"  day-or-night>
@@ -225,116 +241,102 @@
                 <div class="clearfix brand-restaurant-body">
                     <div class="restaurant-list fl">
                         <ul class="clearfix">
-                            <li class="restaurant-item fl">
-                                <div class="img-box fl">
-                                    <a href="path?path=shop_detail">
-                                        <img src="images/restaurant_04.jpg" width="82px" height="82px">
-                                    </a>
-                                </div>
-                                <article class="restaurant-introduce fl">
-                                    <h3 class="ellipsis"><a href="/Shanghai/XianYuXianChuanQiGuangChang/menu/?gid=">望湘园 (传奇广场)</a></h3>
-                                    <dl class="clearfix">
-                                        <dt class="fl">饮料小吃</dt>
-                                        <dd class="small-star fl">
-                                            <div class="small-star score" style="width:52.00px"></div>
-                                        </dd>
-                                    </dl>
-                                    <div class="restaurant-state">
+
+                            <div id="indexshop"></div>
+                        <#--           <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/restaurant_04.jpg" alt="望湘园">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">望湘园</a>
+                                   </li>
+                                   <li class="restaurant-item fl">
+                                       <div class="img-box fl">
+                                           <a href="shop_detail.html">
+                                               <img src="images/restaurant_15.png" width="82px" height="82px">
+                                           </a>
+                                       </div>
+                                       <article class="restaurant-introduce fl">
+                                           <h3 class="ellipsis"><a href="/Shanghai/XianYuXianChuanQiGuangChang/menu/?gid=">星巴克 (传奇广场)</a></h3>
+                                           <dl class="clearfix">
+                                               <dt class="fl">饮料小吃</dt>
+                                               <dd class="small-star fl">
+                                                   <div class="small-star score" style="width:52.00px"></div>
+                                               </dd>
+                                           </dl>
+                                           <div class="restaurant-state">
+                                               <span><img src="http://dhcactivity.dhero.cn/FjnSIEuUzJvV6j-ifPq7zevJSt30?imageView2/1/w/15/h/15/" alt="" /></span>
+                                           </div>
+                                       </article>
 
 
 
 
-                                        <span><img src="http://dhcactivity.dhero.cn/FjnSIEuUzJvV6j-ifPq7zevJSt30?imageView2/1/w/15/h/15/" alt="" /></span>
-
-
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/restaurant_04.jpg" alt="望湘园">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">望湘园</a>
-                            </li>
-                            <li class="restaurant-item fl">
-                                <div class="img-box fl">
-                                    <a href="shop_detail.html">
-                                        <img src="images/restaurant_15.png" width="82px" height="82px">
-                                    </a>
-                                </div>
-                                <article class="restaurant-introduce fl">
-                                    <h3 class="ellipsis"><a href="/Shanghai/XianYuXianChuanQiGuangChang/menu/?gid=">星巴克 (传奇广场)</a></h3>
-                                    <dl class="clearfix">
-                                        <dt class="fl">饮料小吃</dt>
-                                        <dd class="small-star fl">
-                                            <div class="small-star score" style="width:52.00px"></div>
-                                        </dd>
-                                    </dl>
-                                    <div class="restaurant-state">
 
 
 
 
-                                        <span><img src="http://dhcactivity.dhero.cn/FjnSIEuUzJvV6j-ifPq7zevJSt30?imageView2/1/w/15/h/15/" alt="" /></span>
 
 
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/restaurant_15.png" alt="星巴克">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">星巴克</a>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/subway.png" alt="赛百味">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">赛百味</a>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/bifengtang.png" alt="避风塘">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">避风塘</a>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/restaurant_07.png" alt="味千拉面">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">味千拉面</a>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/restaurant_08.jpg" alt="吉野家">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">吉野家</a>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/restaurant_14.jpg" alt="必胜客">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">必胜客</a>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/restaurant_10.png" alt="萨莉亚">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">萨莉亚</a>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/restaurant_12.jpg" alt="新旺茶餐厅">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">新旺茶餐厅</a>
-                            </li>
-                            <li>
-                                <a href="shop_brand.html" target="_blank">
-                                    <img src="images/restaurant_16.png" alt="CoCo壱番屋">
-                                </a>
-                                <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">CoCo壱番屋</a>
-                            </li>
+
+
+
+
+
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/restaurant_15.png" alt="星巴克">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">星巴克</a>
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/subway.png" alt="赛百味">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">赛百味</a>
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/bifengtang.png" alt="避风塘">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">避风塘</a>
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/restaurant_07.png" alt="味千拉面">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">味千拉面</a>
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/restaurant_08.jpg" alt="吉野家">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">吉野家</a>
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/restaurant_14.jpg" alt="必胜客">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">必胜客</a>
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/restaurant_10.png" alt="萨莉亚">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">萨莉亚</a>
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/restaurant_12.jpg" alt="新旺茶餐厅">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">新旺茶餐厅</a>
+                                   </li>
+                                   <li>
+                                       <a href="shop_brand.html" target="_blank">
+                                           <img src="images/restaurant_16.png" alt="CoCo壱番屋">
+                                       </a>
+                                       <a href="shop_brand.html" target="_blank" class="restaurant-name fs14">CoCo壱番屋</a>-->
+                            <#--</li>-->
                         </ul>
                     </div>
                 </div>
