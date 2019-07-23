@@ -35,7 +35,7 @@
                             <a href="javascript:query()" rel="nofollow">我的订单</a>
                         </li>
                         <li >
-                            <a href="javascript:funmemberscript('member_collect')" rel="nofollow">我的收藏</a>
+                            <a href="javascript:queryCollect()" rel="nofollow">我的收藏</a>
                         </li>
                         <li >
                             <a href="javascript:open()" rel="nofollow">地址管理</a>
@@ -96,7 +96,7 @@
         })
     }
 
-
+    //查看评论
     function query() {
         $.ajax({
             url: "/orderFeign/getUserIdOrder",
@@ -110,6 +110,22 @@
             }
         })
     }
+
+    //查询用户收藏
+    function queryCollect(){
+        $.ajax({
+            url:'/userFeign/queryUserIdCollect',
+            type:'get',
+            data:{
+                "userId":1
+            },
+            dataType:'html',
+            success:function(data){
+                $("#order_id").html(data);
+            }
+        })
+    }
+
     //显示商家管理权限
     $(function () {
         var id=1;

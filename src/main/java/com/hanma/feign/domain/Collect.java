@@ -11,7 +11,7 @@ import java.util.Date;
  * 收藏表
  */
 @Data
-public class Collect {
+public class Collect  {
 
     //收藏主键
     private Long collectId;
@@ -29,4 +29,8 @@ public class Collect {
     private Date collectUpdateTime;
     //状态
     private Integer collectYn;
+
+    //商家 实体
+    private Terrace terrace;
+
 }

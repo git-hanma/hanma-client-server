@@ -94,6 +94,7 @@
         });
     }
 
+    //新增评论
     function saveComment(){
         var orderId = $("#orderId").val();
         var merchantId = $("#merchantId").val();
@@ -110,7 +111,6 @@
             dataType:'json',
             success:function(data){
                 //新增评论
-                alert(userId+"-"+orderId+"-"+merchantId+"-"+commentDiscuss+"-"+data.userPhone);
                 $.ajax({
                     url:'/userFeign/saveComment',
                     type:'post',

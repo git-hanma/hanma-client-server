@@ -121,5 +121,23 @@ public interface UserServiceFeign {
      */
     @PostMapping("/collect/saveCollect")
     @ResponseBody
-    ResultMsg saveCollect(Collect collect);
+    ResultMsg saveCollect(@RequestBody Collect collect);
+
+    /**
+     * 根据用户ID查询收藏记录
+     * @param userId
+     * @return
+     */
+    @GetMapping("/collect/queryUserIdCollect")
+    @ResponseBody
+    List<Collect> queryUserIdCollect(@RequestParam("userId") Long userId);
+
+    /**
+     * 根据收藏ID删除
+     * @param collectId
+     * @return
+     */
+    @PostMapping("/collect/delCollectId")
+    @ResponseBody
+    ResultMsg delCollectId(@RequestParam("collectId") Long collectId);
 }
