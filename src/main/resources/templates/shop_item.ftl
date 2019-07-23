@@ -14,3 +14,6 @@
     </div>
 </li>
 </#list>
+<script src="js/menupage.js"></script>
+<script src="js/favorite.js"></script>
+<script>angular.bootstrap(document, ["app"]);</script>

@@ -156,6 +156,7 @@
             url: "/itCon/queryItem",
             type: "get",
             dataType: "html",
+            async:false,
             data:{'id':id},
             success: function (data) {
                 $("#"+id).html(data);
@@ -529,9 +530,7 @@
     var delivery = {minimum_order_quantity:'150',free_delivery_treshold:'0',delivery_fee:'0' }
 </script>
 
-<script src="js/menupage.js"></script>
-<script src="js/favorite.js"></script>
-<script>angular.bootstrap(document, ["app"]);</script>
+
 
 
 
