@@ -9,6 +9,8 @@ import com.hanma.feign.domain.User;
 import com.hanma.feign.service.UserServiceFeign;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -169,5 +171,19 @@ public class UserServiceFeignImpl implements UserServiceFeign {
         System.out.println("delCollectId方法进熔断器了");
         return null;
     }
+
+    /**
+     * 登录
+     *
+     * @param code
+     * @param user
+     * @return
+     */
+    @Override
+    public ResultMsg loginUser(String user,String code) {
+        System.out.println("loginUser方法进熔断器了");
+        return null;
+    }
+
 
 }

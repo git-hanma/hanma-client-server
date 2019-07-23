@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -140,4 +142,15 @@ public interface UserServiceFeign {
     @PostMapping("/collect/delCollectId")
     @ResponseBody
     ResultMsg delCollectId(@RequestParam("collectId") Long collectId);
+
+    /**
+     * 登录
+     * @param code
+     * @param user
+     * @return
+     */
+    @GetMapping("/user/loginUser")
+    @ResponseBody
+    ResultMsg loginUser(@RequestParam("user") String user,@RequestParam("code") String code);
+
 }
