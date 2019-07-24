@@ -76,7 +76,7 @@
                 </div>
                 <div>
                     <#--<input class="form-btn" onclick="loginUser()" id="loginPageBtn" value="登录">-->
-                    <button class="form-btn" id="loginPageBtn" onclick="loginUser()">登录</button>
+                    <button class="form-btn" id="loginPageBtn" onclick="loginUser()">登录</button><span id="login"></span>
                 </div>
                 <div class="code-box clearfix">
                     <img src="images/mobile_url_qr.png" />
