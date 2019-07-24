@@ -14,10 +14,10 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css"/>
 
-    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
 
     <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/frontPage-ie8-fix.css" /><![endif]-->
     <!--[if lte IE 10]><script>document.createElement('footer');document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');</script><![endif]-->
@@ -38,7 +38,7 @@
     <div class="common-width">
 
         <section class="clearfix">
-            <h1 class="logo" title="外卖超人">
+            <h1 class="logo" title="汗马">
                 <a href="index.html"></a>
             </h1>
             <span class="page-name"> | 登录</span>
@@ -56,7 +56,7 @@
             <div class="log-box" id="loginPageBox">
                 <div class="form-group w275">
                     <label for="lPhone">手机号码</label>
-                    <span class="fs12 fr">没有注册 ？ <a href="/account/register/" class="yo">立即注册</a></span>
+                    <span class="fs12 fr">没有注册 ？ <a href="/register" class="yo">立即注册</a></span>
                     <input id="lPhone" maxlength="11" type="text" class="form-text" placeholder="输入您的手机号码"/></label><span id="userPhone"></span>
                 </div>
                 <div class="form-error-message"></div>
