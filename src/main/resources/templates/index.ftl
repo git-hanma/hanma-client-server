@@ -410,9 +410,9 @@
         <div class="form-group">
             <label for="">手机号码</label>
             <div>
-                <input type="text" ng-model="user.username" ng-class="{error:user.usernameMessage}" ng-focus="user.usernameMessage=''" maxlength="11" placeholder="请输入你的手机号码" />
+                <input id="lPhone" type="text" ng-model="user.username" ng-class="{error:user.usernameMessage}" ng-focus="user.usernameMessage=''" maxlength="11" placeholder="请输入你的手机号码" />
                 <span class="vaildate-error" ng-if="user.usernameMessage">
-                    <span ng-bind="user.usernameMessage"></span>
+                    <span ng-bind="user.usernameMessage"></span><span id="userPhone"></span>
                 </span>
                 <span class="vaildate-error" ng-if="user.isLogined">
                     该手机号码尚未注册！<a href="javascript:;" ng-click="locationRegister()" class="link">立即注册</a>
@@ -422,11 +422,19 @@
         <div class="form-group mb10">
             <label for="">登录密码</label>
             <div>
-                <input type="password" onpaste="return false" ng-model="user.password" ng-focus="user.passwordMessage=''"  ng-class="{error:user.passwordMessage}" maxlength="10" placeholder="请输入登录密码" />
+                <input id="lPass" type="password" onpaste="return false" ng-model="user.password" ng-focus="user.passwordMessage=''"  ng-class="{error:user.passwordMessage}" maxlength="10" placeholder="请输入登录密码" />
                 <span class="vaildate-error" ng-if="user.passwordMessage">
-                    <span ng-bind="user.passwordMessage"></span>
+                    <span ng-bind="user.passwordMessage"></span><span id="userPass"></span>
                 </span>
             </div>
+        </div>
+        <div class="form-group">
+
+            <label  for="lPass">验证码</label>
+            <p>
+                <input id="lCaptcha" type="text" style="width: 92%" placeholder="请输入验证码"/>
+            </p>
+            <span><img  src="${request.contextPath}/userFeign/getImg" height="40px" onclick="this.src= change()" /></span>
         </div>
         <div ng-init="showCaptcha=0" ng-if="showCaptcha" class="form-group inline clearfix mb10">
             <div class="fl w50p">
@@ -442,8 +450,8 @@
         <div class="clearfix mb10">
             <dh-checkbox model="user.rememberme" title="记住我" class="fl"></dh-checkbox>
             <a href="/account/password/reset_via_mobile/" target="_blank" class="fs12 fr link">忘记密码</a>
-        </div>
-        <button class="big-btn btn-green btn mb10" ng-click="loginVaildate()" ng-disabled="loginBtnDisabled" ng-bind="loginBtn"></button>
+        </div><#--ng-click="loginVaildate()"-->
+        <button class="big-btn btn-green btn mb10" ng-disabled="loginBtnDisabled" ng-bind="loginBtn" onclick="loginUser()"></button>
         <div class="clearfix">
             <span class="fr fs12">
                 没有账号?
@@ -709,6 +717,62 @@
         });
     }
 
+
+</script>
+<script>
+    function change(){
+        return '${request.contextPath}/userFeign/getImg?aaa'+ Math.random();
+    }
+    //登录
+    function loginUser(){
+        var userPhone = $("#lPhone").val();
+        var userPass = $("#lPass").val();
+        var code = $("#lCaptcha").val();
+        //正则验证手机号
+        var phone = /^1\d{10}$/
+        var bool = phone.test(userPhone);
+        if(!bool){
+            $("#phoneSpan").html("<font color='red'>手机号格式错误</font>");
+            return;
+        }
+        //判断手机号不能为空
+        if(userPhone == ''){
+            $("#phoneSpan").html("<font color='red'>手机号不能为空</font>")
+        }
+
+        //判断密码不能为空  和  不能小于6位数
+        var pass = /^[A-Za-z0-9]{6,}$/
+        var passNull = pass.test(userPass);
+        if(!passNull){
+            $("#passSpan").html("<font color='red'>密码不能小于6位</font>");
+            return;
+        }
+
+        if(userPass == null){
+            $("#passSpan").html("<font color='red'>密码不能为空</font>");
+            return;
+        }
+
+        //如果上面都没问题  去后台验证手机号和密码是否都一致
+        $.ajax({
+            url:'/userFeign/loginUser',
+            type:'get',
+            data:{
+                "userPhone":userPhone,
+                "userPass":userPass,
+                "code":code
+            },
+            dataType:'json',
+            success:function(data){
+                if(data.code==500){
+                    $("#login").html(data.msg);
+                }else{
+                    alert("登录成功");
+                    show=false;
+                }
+            }
+        })
+    }
 
 </script>
 </html>
