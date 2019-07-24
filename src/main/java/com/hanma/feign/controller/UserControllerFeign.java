@@ -173,4 +173,24 @@ public class UserControllerFeign {
         return  rs;
     }
 
+
+    /**
+     * 从缓存中取数据
+     * @return
+     */
+    @GetMapping("/gainRedisData")
+    @ResponseBody
+    public Object gainRedisData(){
+        return userServiceFegin.gainRedisData();
+    }
+
+    /**
+     * 从缓存中删除
+     */
+    @GetMapping("/quitRedis")
+    @ResponseBody
+    public void quitRedis(){
+        userServiceFegin.quitRedis();
+    }
+
 }

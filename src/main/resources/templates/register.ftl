@@ -56,7 +56,7 @@
             <div class="log-box" id="registerPageBox">
                 <div class="form-group w275">
                     <label for="">手机号码</label>
-                    <input type="text" id="rPhone" maxlength="11" class="form-text" placeholder="请输入你的手机号码" />
+                    <input type="text" id="rPhone" maxlength="11" class="form-text" placeholder="请输入你的手机号码" /><span id=""></span>
                 </div>
                 <div class="form-error-message"></div>
 
@@ -83,10 +83,10 @@
                     <label for="">登录密码</label>
                     <input type="password" id="rPass" maxlength="10" class="form-text" onpaste="return false" placeholder="输入登录密码 6-10个字符"/>
                 </div>
-                <div class="form-error-message"></div>
-                <div class="form-group w275">
+                <#--<div class="form-error-message"></div>-->
+                <#--<div class="form-group w275">
                     <input type="password" id="rPass2" maxlength="10" class="form-text" onpaste="return false" placeholder="输入登录密码 6-10个字符"/>
-                </div>
+                </div>-->
                 <div class="form-error-message"></div>
 
                 <div class="checkbox form-group clearfix mb5">

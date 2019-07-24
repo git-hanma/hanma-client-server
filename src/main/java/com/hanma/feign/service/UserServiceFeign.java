@@ -153,4 +153,11 @@ public interface UserServiceFeign {
     @ResponseBody
     ResultMsg loginUser(@RequestParam("user") String user,@RequestParam("code") String code);
 
+    @GetMapping("/user/gainRedisData")
+    @ResponseBody
+    Object gainRedisData();
+
+    @GetMapping("/user/quitRedis")
+    @ResponseBody
+    void quitRedis();
 }
