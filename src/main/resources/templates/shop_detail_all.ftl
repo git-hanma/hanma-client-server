@@ -13,20 +13,20 @@
             </nav>
             <div id="menu-main" class="menu-main">
 
-            <#list typelist as typelist>
-                <article class="collapse section-${typelist.typeId}">
+            <#list typelist1 as typelist1>
+                <article class="collapse section-${(typelist1.typeId)!""}">
                     <header accordion>
-                        <h3 class="ellipsis">${typelist.typeName} </h3>
-                        <span ng-if="sectionCount['${typelist.typeId}']" ng-class="{disinbl:sectionCount['${typelist.typeId}']}"
-                              class="badge disnone" ng-bind="sectionCount['${typelist.typeId}']"></span>
+                        <h3 class="ellipsis">${(typelist1.typeName)!""} </h3>
+                        <span ng-if="sectionCount['${(typelist1.typeId)!""}']" ng-class="{disinbl:sectionCount['${(typelist1.typeId)!""}']}"
+                              class="badge disnone" ng-bind="sectionCount['${(typelist1.typeId)!""}']"></span>
                         <i class="icon shrink-icon position"></i>
                     </header>
                     <section>
                         <ul class="clearfix menu-group menu-group-img menu-first-load">
-                            <div id="${typelist.typeId}"  class="clearfix menu-group menu-group-img menu-first-load">
+                            <div id="${(typelist1.typeId)!""}"  class="clearfix menu-group menu-group-img menu-first-load">
 
                                 <script>
-                                    iframe('${typelist.typeId}');
+                                    iframe('${(typelist1.typeId)!""}');
                                 </script>
 
                             </div>

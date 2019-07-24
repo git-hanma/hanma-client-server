@@ -5,6 +5,7 @@ package com.hanma.controller;/**
 import com.hanma.domain.Terrace;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.websocket.server.PathParam;
@@ -65,8 +66,11 @@ public class ClientController {
     }
 
 
+    @ResponseBody
     @RequestMapping("toPage")
-    public String toPage(){
-        return "shop_detail";
+    public ModelAndView toPage(Long id){
+        ModelAndView view = new ModelAndView("shop_detail");
+        view.addObject("id",id);
+        return view;
     }
 }

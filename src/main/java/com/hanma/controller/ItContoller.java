@@ -22,12 +22,21 @@ public class ItContoller {
     private ItService itService;
 
 //查询类目列表
+//    @ResponseBody
+//    @RequestMapping(value = "queryType",method = RequestMethod.GET)
+//    public ModelAndView queryType(){
+//        ModelAndView view = new ModelAndView("shop_detail_all");
+//        List<Type> list=itService.queryType();
+//        view.addObject("typelist",list);
+//        return view;
+//    }
+    //根据id查询类目列表
     @ResponseBody
-    @RequestMapping(value = "queryType",method = RequestMethod.GET)
-    public ModelAndView queryType(){
+    @RequestMapping(value = "queryTypeById",method = RequestMethod.GET)
+    public ModelAndView queryTypeById(Long id){
         ModelAndView view = new ModelAndView("shop_detail_all");
-        List<Type> list=itService.queryType();
-        view.addObject("typelist",list);
+        List<Type> list=itService.queryTypeById(id);
+        view.addObject("typelist1",list);
         return view;
     }
 //查询商品列表
