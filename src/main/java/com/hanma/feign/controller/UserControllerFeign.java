@@ -1,5 +1,7 @@
 package com.hanma.feign.controller;
 
+import com.google.gson.Gson;
+import com.hanma.commons.ImgUtil;
 import com.hanma.commons.ResultMsg;
 import com.hanma.feign.domain.Collect;
 import com.hanma.feign.domain.Comment;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -123,6 +127,50 @@ public class UserControllerFeign {
     @ResponseBody
     public ResultMsg delCollectId(Long collectId){
         return  userServiceFegin.delCollectId(collectId);
+    }
+
+    /**
+     * 生成图片验证码
+     */
+    @GetMapping(value = "/getImg")
+    @ResponseBody
+    public String getImg(HttpServletRequest request,HttpServletResponse response){
+        ImgUtil img = new ImgUtil();
+        String str = img.getImg(request, response);
+        return str;
+    }
+
+    /**
+     * 登录方法
+     * @param user
+     * @return
+     */
+    @GetMapping("/loginUser")
+    @ResponseBody
+    public ResultMsg loginUser(HttpServletRequest request,User user,String code){
+        //创建状态类
+        ResultMsg rs = new ResultMsg();
+        //创建Gson 将对象装换成string 通过feign去调用服务端
+        Gson gson = new Gson();
+        //将对象装换成string
+        String obj = gson.toJson(user);
+        //讲验证码从缓存中取出
+        Object attribute = request.getSession().getAttribute("codeImg");
+        String sionCode = attribute.toString();
+        //将字符串转换成小写
+        String s = sionCode.toLowerCase();
+        String reCode = code.toLowerCase();
+        //如果验证码不一致返回前台提示
+        if(!reCode.equals(s)){
+            rs.setMsg("<font color='red'>验证码输入错误</font>");
+            rs.setCode(500);
+            return rs;
+        }
+        //讲session制空
+        request.getSession().setAttribute("codeImg",null);
+
+        rs = userServiceFegin.loginUser(obj,code);
+        return  rs;
     }
 
 }

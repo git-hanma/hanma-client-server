@@ -14,10 +14,10 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css"/>
 
-    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
 
     <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/frontPage-ie8-fix.css" /><![endif]-->
     <!--[if lte IE 10]><script>document.createElement('footer');document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');</script><![endif]-->
@@ -38,7 +38,7 @@
     <div class="common-width">
 
         <section class="clearfix">
-            <h1 class="logo" title="外卖超人">
+            <h1 class="logo" title="汗马">
                 <a href="index.html"></a>
             </h1>
             <span class="page-name"> | 登录</span>
@@ -56,30 +56,27 @@
             <div class="log-box" id="loginPageBox">
                 <div class="form-group w275">
                     <label for="lPhone">手机号码</label>
-                    <span class="fs12 fr">没有注册 ？ <a href="/account/register/" class="yo">立即注册</a></span>
-                    <input id="lPhone" maxlength="11" type="text" class="form-text" placeholder="输入您的手机号码"/></label>
+                    <span class="fs12 fr">没有注册 ？ <a href="/register" class="yo">立即注册</a></span>
+                    <input id="lPhone" maxlength="11" type="text" class="form-text" placeholder="输入您的手机号码"/></label><span id="userPhone"></span>
                 </div>
                 <div class="form-error-message"></div>
                 <div class="form-group w275">
                     <label  for="lPass" >登录密码</label>
-                    <input id="lPass" maxlength="10" type="password" class="form-text" onpaste="return false" placeholder="请输入登录密码"/></label>
+                    <input id="lPass" maxlength="10" type="password" class="form-text" onpaste="return false" placeholder="请输入登录密码"/></label><span id="userPass"></span>
                 </div>
                 <div class="form-error-message"></div>
 
-                <div class="form-group captcha clearfix">
+                <div >
 
+                    <label  for="lPass">验证码</label>
+                    <p>
                     <input id="lCaptcha" type="text" class="form-text" placeholder="请输入验证码"/>
-                    <span><img id="captchaImg" _src="/captcha/" src="/captcha/" alt="验证码"/></span>
-                </div>
-                <div class="form-error-message"></div>
-                <div class="form-group checkbox clearfix">
-                    <label class="fl fs12">
-                        <input id="lRemember" type="checkbox" value="true"> 记住我
-                    </label>
-                    <span class="fr fs12"><a class="yo" target="_black" href="/account/password/reset_via_mobile/">忘记密码</a></span>
+                    </p>
+                    <span><img  src="${request.contextPath}/userFeign/getImg" height="40px" onclick="this.src= change()" /></span>
                 </div>
                 <div>
-                    <button class="form-btn" id="loginPageBtn">登录</button>
+                    <#--<input class="form-btn" onclick="loginUser()" id="loginPageBtn" value="登录">-->
+                    <button class="form-btn" id="loginPageBtn" onclick="loginUser()">登录</button>
                 </div>
                 <div class="code-box clearfix">
                     <img src="images/mobile_url_qr.png" />
@@ -150,6 +147,61 @@
     ga('require', 'ecommerce', 'ecommerce.js');
 </script>
 <!-- End Google Analytics Code -->
+<script>
+    function change(){
+        return '${request.contextPath}/userFeign/getImg?aaa'+ Math.random();
+    }
+    //登录
+    function loginUser(){
+        var userPhone = $("#lPhone").val();
+        var userPass = $("#lPass").val();
+        var code = $("#lCaptcha").val();
+        //正则验证手机号
+        var phone = /^1\d{10}$/
+        var bool = phone.test(userPhone);
+        if(!bool){
+            $("#phoneSpan").html("<font color='red'>手机号格式错误</font>");
+            return;
+        }
+        //判断手机号不能为空
+        if(userPhone == ''){
+            $("#phoneSpan").html("<font color='red'>手机号不能为空</font>")
+        }
 
+        //判断密码不能为空  和  不能小于6位数
+        var pass = /^[A-Za-z0-9]{6,}$/
+        var passNull = pass.test(userPass);
+        if(!passNull){
+            $("#passSpan").html("<font color='red'>密码不能小于6位</font>");
+            return;
+        }
+
+        if(userPass == null){
+            $("#passSpan").html("<font color='red'>密码不能为空</font>");
+            return;
+        }
+
+        //如果上面都没问题  去后台验证手机号和密码是否都一致
+        $.ajax({
+            url:'/userFeign/loginUser',
+            type:'get',
+            data:{
+                "userPhone":userPhone,
+                "userPass":userPass,
+                "code":code
+            },
+            dataType:'json',
+            success:function(data){
+                if(data.code==500){
+                    $("#login").html(data.msg);
+                }else{
+                    alert("登录成功");
+                    location.href="/path?path="+"index";
+                }
+            }
+        })
+    }
+
+</script>
 </body>
 </html>

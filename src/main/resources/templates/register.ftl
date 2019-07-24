@@ -38,7 +38,7 @@
     <div class="common-width">
 
         <section class="clearfix">
-            <h1 class="logo" title="外卖超人">
+            <h1 class="logo" title="汗马">
                 <a href="index.html"></a>
             </h1>
             <span class="page-name"> | 注册</span>
