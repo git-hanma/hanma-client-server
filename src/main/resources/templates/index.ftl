@@ -46,7 +46,6 @@
                 dataType:"html",
                 // data:{'path':"shop_detail_all"},
                 success: function (data) {
-                    alert(data);
                     $("#indexshop").html(data);
                 }
             })

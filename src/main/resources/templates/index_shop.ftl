@@ -13,7 +13,7 @@
 <li class="restaurant-item fl">
     <div class="img-box fl">
     <#--<a href="path?path=shop_detail">-->
-        <a href="/toPage">
+        <a href="/toPage?id=${list.merchantId}">
             <img src="/images/restaurant_04.jpg" width="82px" height="82px">
         </a>
     </div>

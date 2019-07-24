@@ -40,4 +40,6 @@ public interface ItService {
     @RequestMapping(value = "type/shanchuleimu",method = RequestMethod.GET)
     void shanchuleimu(@RequestParam("id") Long id);
 
+    @RequestMapping(value = "type/queryTypeById",method = RequestMethod.GET)
+    List<Type> queryTypeById(@RequestParam("id") Long id);
 }

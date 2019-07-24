@@ -53,4 +53,9 @@ public class ItServiceImpl implements ItService {
 
     }
 
+    @Override
+    public List<Type> queryTypeById(Long id) {
+        return null;
+    }
+
 }
