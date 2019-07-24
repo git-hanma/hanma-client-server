@@ -18,7 +18,7 @@
     <meta name="baidu-site-verification" content="IYCrtVH0i1" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-    <link rel="icon" type="image/png" href="/images/favicon.ico"/>
+    <link rel="icon" type="image/png" href="/images/favicon.ico?v=2019-5-20"/>
     <script type="text/javascript">
 
         (function(document, screen) {if (screen.width < 760) {document.location.href="/mobile/";}}(document, screen));
@@ -26,8 +26,8 @@
 
     <link rel="stylesheet" href="/css/common.css?v=2015-5-20"/>
 
-    <link rel="stylesheet" href="/css/frontPage.css"/>
-    <link rel="stylesheet" href="/css/restaurant.css"/>
+    <link rel="stylesheet" href="/css/frontPage.css?v=2019-5-20"/>
+    <link rel="stylesheet" href="/css/restaurant.css?v=2019-5-20"/>
 
     <!--[if lte IE 7]><script>window.onload=function(){location.href="/ie6warning/"}</script><![endif]-->
     <!--[if lt IE 9]>
