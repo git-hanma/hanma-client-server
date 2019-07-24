@@ -15,9 +15,9 @@
     <meta name="description" content="" />
     <meta property="wb:webmaster" content="239d3d1dbdde1b2c" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/common.css?v=2019-5-20"/>
 
-    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/login.css?v=2019-5-20"/>
 
     <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/frontPage-ie8-fix.css" /><![endif]-->
     <!--[if lte IE 10]><script>document.createElement('footer');document.createElement('header');document.createElement('nav');document.createElement('section');document.createElement('article');</script><![endif]-->
@@ -38,7 +38,7 @@
     <div class="common-width">
 
         <section class="clearfix">
-            <h1 class="logo" title="外卖超人">
+            <h1 class="logo" title="汗马">
                 <a href="index.html"></a>
             </h1>
             <span class="page-name"> | 注册</span>

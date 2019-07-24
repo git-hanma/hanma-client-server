@@ -124,7 +124,7 @@ button + button{margin-left:23px}
 .btn-group > .btn{float:left}
 .btn-group .btn:first-child{border-top-right-radius:0;border-bottom-right-radius:0}
 .btn-group .btn + .btn{border-bottom-left-radius:0;border-top-left-radius:0;border-left:1px solid #3C9500}
-input[type=text],input[type=password],textarea,select{border:1px solid #bcbcbc;border-radius:3px;padding:8px 12px;margin:0;outline:none;-webkit-transition:box-shadow .5s;-moz-transition:box-shadow .5s;-ms-transition:box-shadow .5s;transition:box-shadow .5s}
+input[type=text],input[type=password],textarea,select{border:1px solid #bcbcbc;border-radius:3px;padding:8px 0px;margin:0;outline:none;-webkit-transition:box-shadow .5s;-moz-transition:box-shadow .5s;-ms-transition:box-shadow .5s;transition:box-shadow .5s}
 input[type=text]:focus,input[type=password]:focus,textarea:focus,select:focus{box-shadow:0 0 5px rgba(253,188,24,1),inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(253,188,33,0.6);outline:none;border:1px solid #FDBC18}
 input[type=text].loading,input[type=password].loading{background:url(../images/input-spinner.gif) no-repeat right center}
 input.error,textarea.error,select.error{box-shadow:0 0 5px #FF8A73;border:1px solid #FF8A73}

@@ -93,8 +93,9 @@
     /*菜品展示*/
     $(function () {
         $.ajax({
-            url: "/itCon/queryType",
+            url: "/itCon/queryTypeById",
             type: "get",
+            data:{id:${id}},
             async:false,
             dataType: "html",
             // data:{'path':"shop_detail_all"},
@@ -168,9 +169,10 @@
     }
     function caidan() {
         $.ajax({
-            url: "/itCon/queryType",
+            url: "/itCon/queryTypeById",
             type: "get",
             dataType: "html",
+            data:{id:${id}},
             // data:{'path':"shop_detail_all"},
             success: function (data) {
                 $("#detail_all").html(data);
