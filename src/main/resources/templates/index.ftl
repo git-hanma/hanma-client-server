@@ -371,7 +371,7 @@
     <div ng-controller="feedbackCtrl">
         <form novalidate="true" name="feedbackForm" class="inline">
             <div class="form-group row mb10">
-                <label class="col-3">联系方式：</label>
+                <label class="col-3">联系方式：</label><#--17853010617-->
                 <div class="col-8">
                     <input type="text" maxlength="20" name="userContact" required ng-focus="userContactFocus()" ng-class="{error:feedback.phoneMessage}" placeholder="请输入您的手机号码" ng-model="feedback.userContact"/>
                 </div>
@@ -405,7 +405,7 @@
 
 <a href="javascript:void(0)" animate-top="-65" class="merchants-icon" ng-click="merchantsShow=true;merchants={};merchants.checkbox=true;"></a>
 
-<dh-dialog class="disnone" type='login' height="500" header="登录" show="loginShow" >
+<dh-dialog id="myModal" class="disnone" type='login' height="500" header="登录" show="loginShow" >
     <form class="login-form" novalidate name="loginForm" ng-controller="loginCtrl">
         <div class="form-group">
             <label for="">手机号码</label>
@@ -451,7 +451,7 @@
             <dh-checkbox model="user.rememberme" title="记住我" class="fl"></dh-checkbox>
             <a href="/account/password/reset_via_mobile/" target="_blank" class="fs12 fr link">忘记密码</a>
         </div><#--ng-click="loginVaildate()"-->
-        <button class="big-btn btn-green btn mb10" ng-disabled="loginBtnDisabled" ng-bind="loginBtn" onclick="loginUser()"></button>
+        <button class="big-btn btn-green btn mb10" ng-disabled="loginBtnDisabled" ng-bind="loginBtn" onclick="loginUser()"></button><span id="login"></span>
         <div class="clearfix">
             <span class="fr fs12">
                 没有账号?
@@ -768,7 +768,8 @@
                     $("#login").html(data.msg);
                 }else{
                     alert("登录成功");
-                    show=false;
+                   /* $('#myModal').context.document.hidden=true;*/
+                    location.href="#";
                 }
             }
         })
