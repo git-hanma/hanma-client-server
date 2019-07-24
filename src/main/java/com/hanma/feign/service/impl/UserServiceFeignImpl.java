@@ -185,5 +185,16 @@ public class UserServiceFeignImpl implements UserServiceFeign {
         return null;
     }
 
+    @Override
+    public Object gainRedisData() {
+        System.out.println("gainRedisData方法进熔断器了");
+        return null;
+    }
+
+    @Override
+    public void quitRedis() {
+        System.out.println("quitRedis方法进熔断器了");
+    }
+
 
 }
