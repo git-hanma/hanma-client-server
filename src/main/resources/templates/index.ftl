@@ -405,7 +405,7 @@
 
 <a href="javascript:void(0)" animate-top="-65" class="merchants-icon" ng-click="merchantsShow=true;merchants={};merchants.checkbox=true;"></a>
 
-<dh-dialog id="myModal" class="disnone" type='login' height="500" header="登录" show="loginShow" >
+<dh-dialog class="disnone" type='login' height="500" header="登录" show="loginShow" >
     <form class="login-form" novalidate name="loginForm" ng-controller="loginCtrl">
         <div class="form-group">
             <label for="">手机号码</label>
@@ -768,8 +768,7 @@
                     $("#login").html(data.msg);
                 }else{
                     alert("登录成功");
-                   /* $('#myModal').context.document.hidden=true;*/
-                    location.href="#";
+                    $(".disnone").hide();
                 }
             }
         })
