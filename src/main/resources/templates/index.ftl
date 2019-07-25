@@ -768,7 +768,9 @@
                     $("#login").html(data.msg);
                 }else{
                     alert("登录成功");
-                    $(".disnone").hide();
+                    $("button").click(function(){
+                        $(".disnone").hide();
+                    });
                 }
             }
         })
